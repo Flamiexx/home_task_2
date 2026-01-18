@@ -1,0 +1,39 @@
+// Базовий інтерфейс
+interface IPerson {
+  name: string;
+  age: number;
+}
+
+// Розширений інтерфейс
+interface IWorker extends IPerson {
+  position: string;
+  salary: number;
+}
+
+// Клас, що реалізує інтерфейс
+class Worker implements IWorker {
+  constructor(
+    public name: string,
+    public age: number,
+    public position: string,
+    private salary: number
+  ) {}
+
+  getSalary(): number {
+    return this.salary;
+  }
+
+  setSalary(amount: number): void {
+    if (amount < 0) {
+      throw new Error("Salary cannot be negative");
+    }
+    this.salary = amount;
+  }
+}
+
+// Приклад
+const worker = new Worker("Ivan", 30, "Developer", 3000);
+
+console.log(worker.getSalary()); // 3000
+worker.setSalary(3500);
+console.log(worker.getSalary()); // 3500

@@ -1,0 +1,27 @@
+// Дженерик-черга
+class Queue<T> {
+  private items: T[] = [];
+
+  enqueue(item: T): void {
+    this.items.push(item);
+  }
+
+  dequeue(): T {
+    if (this.items.length === 0) {
+      throw new Error("Queue is empty");
+    }
+    return this.items.shift() as T;
+  }
+}
+
+// Черга з рядків
+const stringQueue = new Queue<string>();
+stringQueue.enqueue("Hello");
+stringQueue.enqueue("World");
+console.log(stringQueue.dequeue()); // Hello
+
+// Черга з чисел
+const numberQueue = new Queue<number>();
+numberQueue.enqueue(1);
+numberQueue.enqueue(2);
+console.log(numberQueue.dequeue()); // 1

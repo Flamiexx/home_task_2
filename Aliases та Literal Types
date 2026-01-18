@@ -1,0 +1,22 @@
+// Type alias
+type StringOrNumber = string | number;
+
+// Функція комбінування
+function combine(
+  input1: StringOrNumber,
+  input2: StringOrNumber
+): string | number {
+  if (typeof input1 === "string" && typeof input2 === "string") {
+    return input1 + input2; // конкатенація
+  }
+
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    return input1 + input2; // додавання
+  }
+
+  throw new Error("Inputs must be both strings or both numbers");
+}
+
+// Приклади
+console.log(combine("Hello, ", "World")); // Hello, World
+console.log(combine(10, 20));             // 30

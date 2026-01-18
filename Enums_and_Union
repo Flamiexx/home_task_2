@@ -1,0 +1,30 @@
+// Enum з днями тижня
+enum Days {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+//Використанням enum + union
+function getActivity(day: Days): "Робота" | "Навчання" | "Відпочинок" {
+  switch (day) {
+    case Days.Saturday:
+    case Days.Sunday:
+      return "Відпочинок";
+
+    case Days.Monday:
+    case Days.Friday:
+      return "Робота";
+
+    default:
+      return "Навчання";
+  }
+}
+
+// Виконуємо функцію
+const today: Days = Days.Sunday;
+console.log(getActivity(today)); // Відпочинок
